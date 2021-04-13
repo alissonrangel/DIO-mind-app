@@ -7,4 +7,28 @@ class ContentsController < ApplicationController
   def new
     @content = Content.new
   end
+
+  def create
+    @content = current_user.contents.build(content_params)
+    # a linha a cima é o mesmo que as duas linhas abaixo
+    # @content = Content.new(content_params)
+    # @content.user = current_user
+
+    if @content.save
+      redirect_to contents_path, notice: 'Content successfully created!'
+    else
+      # byebug
+      render :new
+    end
+  end
+
+  def edit
+    @content = Content.find(params[:id])
+  end
+
+  private
+
+  def content_params
+    params.require(:content).permit(:title, :description)
+  end
 end
