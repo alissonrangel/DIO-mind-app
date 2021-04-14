@@ -11,14 +11,15 @@
   </head>
 
   <body>
-    <h1>MindApp</h1>
-    <% if user_signed_in? %>
-      <%= link_to 'Home', home_path %>
-      <%= link_to 'Contents', contents_path %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container">
+      <% if user_signed_in? %>
+        <%= link_to 'Home', home_path %>
+        <%= link_to 'Contents', contents_path %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      <% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>
