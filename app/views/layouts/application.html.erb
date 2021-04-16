@@ -8,9 +8,108 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>            
+      body{
+        background-color:var(--dark);
+      }
+      a:hover{
+        text-decoration: none;
+      }
+    </style>
+    <script>
+
+      var cor1 = '#3afc53'
+      var cor2 = '#33dd49'
+      var cor3 = '#2ec142'
+      var cor4 = '#27a538'
+      var cor5 = '#238c31'
+      var cor6 = '#1c7228'
+      var cor7 = '#15561e'
+      //var cores = ['#3afc53','#33dd49','#2ec142','#27a538','#238c31','#1c7228','#15561e'];
+      var cores = ['#3afc53','#3afc53','#33dd49','#33dd49','#2ec142','#2ec142','#27a538','#238c31','#1c7228','#15561e'];
+      var numeros = [0,1,2,3,4,5,6,7,8,9];
+      var letras = ['a','d','n','j','x','l','b','h','z','c'];
+
+      var largura = window.innerWidth;
+      var altura = window.innerHeight;
+
+      var string = '1001010011';
+      var topp = 10;
+      var left = 10;
+
+      function criarString() {
+          let string = '100100101011';
+          return string;
+      }
+
+      var intervalo = setInterval(calcularPosicao, 10);
+
+      function calcularPosicao(){
+        let left = Math.floor((Math.random() * largura) - 30);
+        let top = Math.floor((Math.random() * (altura - 200) ) + 20);
+        mostrarString(left, top);
+      }
+
+      function mostrarString(left, topp){
+        var count = 0;
+        let esq = left;
+        let topo = topp;
+        let c = 0;
+        var intervalo = setInterval(() => {                    
+          if ( count < 10){
+            let random = Math.floor(Math.random() * 10)
+            let letra = ['0', '1']
+            var div = document.createElement('div');
+            div.style.position = 'absolute';
+            div.style.color = 'green';
+            div.innerHTML = numeros[random];
+            div.className = 'letra';
+            div.id = `l${left}_${topp}`;          
+            console.log(`IDD l${left}_${topp}`);
+            div.style.top = topp + 'px';
+            div.style.left = left + 'px';
+            document.body.appendChild(div);            
+            topp += 12;
+            count++;
+            
+            console.log('fora')
+            let l = esq;
+            let t = topo;
+            for(let i = (count-1); i >= 0; i--){
+              console.log(`1dentro${i} l${l}_${t}`);
+              let d = document.getElementById(`l${l}_${t}`);
+              console.log(`2dentro${i} l${l}_${t}`);
+              d.style.color = cores[i];
+              console.log(`3dentro${i} l${l}_${t}`);
+              let r = Math.floor(Math.random() * 10);
+              console.log(`4dentro${i} l${l}_${t}`);
+              d.innerHTML = `${numeros[r]}`;
+              console.log(`5dentro${i} l${l}_${t}`);
+              t += 12;  
+              console.log(`6dentro${i} l${l}_${t}`);
+            }
+            
+          }else {
+            let d = document.getElementById(`l${left}_${topo}`);
+            //console.log(`l${left}_${topo}`);
+            //let d = array[c++];
+            d.remove();
+            topo += 12;
+            count++;
+            console.log('COUNT '+ count);
+            if (count == 20){
+              clearInterval(intervalo);
+            }
+          }
+        }, 50);
+
+      }
+      
+    </script>
   </head>
 
-  <body>
+  <body onload="">
     <div class="container">
       <% if user_signed_in? %>
         <%= link_to 'Home', home_path %>

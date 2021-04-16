@@ -1,9 +1,16 @@
-<h1>Cloud Tags</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="matrix">
+  <h1>Cloud Tags Matrix</h1>
 
-<% @tags_data.each do |tag_name, count| %>
-  <%font_size = count * 20%>
-  <span style='font-size: <%=font_size > 70 ? 70 : font_size%>px'>
-    <%= link_to tag_name, contents_path(tags: [tag_name]), style: 'text-decoration: none' %>
-  </span>
-<% end %>
+  <% @tags_data.each do |tag_name, count| %>
+    <%font_size = count * 20%>
+    <span style='font-size: <%=font_size > 70 ? 70 : font_size%>px'>
+      <% cor = 'var(--primary)' if count == 1 %>
+      <% cor = 'var(--info)' if count == 2 %>
+      <% cor = 'var(--success)' if count == 3 %>
+      <% cor = 'var(--warning)' if count == 4 %>
+      <% cor = 'var(--danger)' if count == 5 %>
+      <% cor = 'var(--light)' if count > 5 %>
+      <%= link_to tag_name, contents_path(tags: [tag_name]), style: "text-decoration: none; color:#{cor}" %>
+    </span>
+  <% end %>
+</div>
