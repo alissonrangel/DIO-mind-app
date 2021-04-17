@@ -7,4 +7,4 @@
 
 ## Effeito matrix
 
-![alt text](https://github.com/alissonrangel/DIO-mind-app/main/app/assets/images/efeito_matrix.png)
+![alt text](https://github.com/alissonrangel/DIO-mind-app/blob/main/app/assets/images/efeito_matrix.png?raw=true)
