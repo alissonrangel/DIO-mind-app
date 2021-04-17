@@ -6,3 +6,5 @@
 * efeito matrix nas páginas
 
 ## Effeito matrix
+
+![alt text](https://github.com/alissonrangel/DIO-mind-app/main/app/assets/images/efeito_matrix.png)
