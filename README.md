@@ -1,24 +1,8 @@
-# README
+# Repositório para o aplicativo web mind-app da DIO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Alterações feitas:
+* inclusão de novos testes
+* alteração das cores das tags de acordo com o peso delas
+* efeito matrix nas páginas
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Effeito matrix
